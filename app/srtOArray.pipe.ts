@@ -3,7 +3,7 @@ import {Pipe, PipeTransform} from 'angular2/core';
 @Pipe({name: 'srtOArray', pure: false})
 export class SrtOArrayPipe implements PipeTransform {
 
-	transform(arr: CustomObject[], args: any): CustomObject[]{
+	transform(arr, arg ){
 		if(arr === undefined){
 			return 0;
 		}else{

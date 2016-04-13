@@ -45,10 +45,6 @@ export class AppComponent {
 		id: 1,
 		name: "Hicham"
 	};
-	currentHero: function(){
-
-
-	};
 	onSelect(hero: Hero){
 		this.selectedHero = hero;
 	}
