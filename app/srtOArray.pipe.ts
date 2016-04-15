@@ -1,6 +1,6 @@
 import {Pipe, PipeTransform} from 'angular2/core';
 
-@Pipe({name: 'srtOArray', pure: false})
+@Pipe({name: 'srtOArray'})
 export class SrtOArrayPipe implements PipeTransform {
 
 	transform(arr, arg ){

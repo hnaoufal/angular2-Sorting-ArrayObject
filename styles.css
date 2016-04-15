@@ -162,7 +162,7 @@ nav a.router-link-active {
 	background-color: #EEE;
 	margin: .5em;
 	padding: .3em 0;
-	height: 1.6em;
+	height: 32px;
 	border-radius: 4px;
 }
 
@@ -192,7 +192,16 @@ nav a.router-link-active {
 	position: relative;
 	left: -1px;
 	top: -4px;
-	height: 1.8em;
+	height: 32px;
 	margin-right: .8em;
 	border-radius: 4px 0 0 4px;
+}
+
+.wrapper{
+ text-align: center;
+}
+
+.json{
+margin-top: 50px;
+margin-bottom: 50px;
 }
