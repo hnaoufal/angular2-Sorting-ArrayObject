@@ -8,10 +8,7 @@ import { NgGrid, NgGridItem } from 'angular2-grid';
 export class json {
 	id: number;
 	name: string;
-	top: number;
-	left: number;
-	width: number;
-	height: number;
+	attr: number[];
 }
 
 export class Hero {
@@ -64,11 +61,11 @@ export class Hero {
 	<h1> Not yet evaluated... </h1>
 	</div>
 	</div>
-	<div class="json">
+	<div id="json">
 	{{jsontext}}
 	</div>
 	`,
-	directives: [NgGrid, NgGridItem]
+	directives: [NgGrid, NgGridItem],
 	pipes: [SrtOArrayPipe]
 })
 
@@ -77,7 +74,7 @@ export class AppComponent {
 	public heroes = HEROES;
 	selectedHero: Hero;
 	title = "Anklicken zum bearbeiten";
-	public jsontext: json=JSON.stringify(JSONUS);
+	public jsontext: string=JSON.stringify(JSONUS);
 
 	hero: Hero ={
 		id: 1,
@@ -85,15 +82,18 @@ export class AppComponent {
 	};
 	onSelect(hero: Hero){
 		this.selectedHero = hero;
-	},
+	};
 	hello(){
 		console.log("Hallo Welt");
-	},
+	};
 	json(){
 		var a = JSON.stringify(JSONUS);
 		var x = document.getElementsByClassName("grid-item");
 		var i;
-	  var b = x[0].childNodes;
+	  var b;
+	  var str;
+	  var ging;
+	  var splittedarray;
 /*
 		console.log("das ist nur x");
 		console.log(x);
@@ -105,15 +105,28 @@ export class AppComponent {
 		console.log(x[2].childNodes);
 		console.log("b array");
 		console.log(b[1]);*/
-		console.log(x[0].getAttribute("style"));
+	 console.log(x.length);
+	 //var str = x[0].getAttribute("style");
+	 //var ging =  str.replace(/[^;/\d]/g, '');
+	 //var splittedarray = ging.split(";").filter(Boolean);
+
+		//console.log(splittedarray);
+		////console.log(x[0].getAttribute("style"));
+		//console.log(b[1].firstElementChild.innerHTML);
+		//console.log(b[1].lastChild.textContent);
+for (i=0; i<9; i++){
+		b= x[i].childNodes;
+	  str = x[i].getAttribute("style");
+	  ging =  str.replace(/[^;/\d]/g, '');
+	  splittedarray = ging.split(";").filter(Boolean);
 		console.log(b[1].firstElementChild.innerHTML);
 		console.log(b[1].lastChild.textContent);
-
-			for(i=0; i < 10; i++)
-		{
-		}
-	});
+		console.log(splittedarray);
+		
+document.getElementById("json").innerHTML = document.getElementById("json").innerHTML + b[1].firstElementChild.innerHTML + b[1].lastChild.textContent + splittedarray;
 }
+}
+
 }
 
 var HEROES: Hero[] = [
@@ -131,16 +144,16 @@ var HEROES: Hero[] = [
 
 var JSONUS: json[] = [
 
-	{ "id": 11, "name": "Florian Dorrer","top":32,"left":32,"width":32,"height":32 },
-	{ "id": 12, "name": "Norbert Bader","top":32,"left":32,"width":32,"height":32  },
-	{ "id": 13, "name": "Bogu","top":32,"left":32,"width":32,"height":32  },
-	{ "id": 14, "name": "Michael Pretz","top":32,"left":32,"width":32,"height":32  },
-	{ "id": 15, "name": "Felix","top":32,"left":32,"width":32,"height":32  },
-	{ "id": 17, "name": "Angelika","top":32,"left":32,"width":32,"height":32  },
-	{ "id": 42, "name": "Hulk","top":32,"left":32,"width":32,"height":32  },
-	{ "id": 18, "name": "Spiderman","top":32,"left":32,"width":32,"height":32  },
-	{ "id": 19, "name": "Mr. T","top":32,"left":32,"width":32,"height":32  },
-	{ "id": 20, "name": "Hans Peter","top":32,"left":32,"width":32,"height":32  }
+	{ "id": 11, "name": "Florian Dorrer", "attr": [12,523,3,32] },
+	{ "id": 11, "name": "Florian Dorrer", "attr": [12,523,3,32] },
+	{ "id": 11, "name": "Florian Dorrer", "attr": [12,523,3,32] },
+	{ "id": 11, "name": "Florian Dorrer", "attr": [12,523,3,32] },
+	{ "id": 11, "name": "Florian Dorrer", "attr": [12,523,3,32] },
+	{ "id": 11, "name": "Florian Dorrer", "attr": [12,523,3,32] },
+	{ "id": 11, "name": "Florian Dorrer", "attr": [12,523,3,32] },
+	{ "id": 11, "name": "Florian Dorrer", "attr": [12,523,3,32] },
+	{ "id": 11, "name": "Florian Dorrer", "attr": [12,523,3,32] },
+	{ "id": 11, "name": "Florian Dorrer", "attr": [12,523,3,32] },
 
 ];
 
